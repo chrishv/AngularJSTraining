@@ -5,7 +5,8 @@ angular.module('todoApp', [])
     this.todos = [
       {text:'buy food', done:true},
       {text:'learn angularJS', done:false},
-      {text:'learn typescript', done:false}];
+      {text:'learn typescript', done:false},
+      ];
  
     this.addTodo = function() {
       this.todos.push({text:this.todoText, done:false});
@@ -23,4 +24,30 @@ angular.module('todoApp', [])
       
       return count;
     };
-  });
+    
+    this.delete = function() {
+      var newTodos = [];
+      angular.forEach(this.todos, function(todo) {
+        if (!todo.done) {
+          newTodos.push({text:todo.text, done:false});
+          
+        }
+        
+      }); 
+      this.todos = newTodos;
+    } 
+    
+    this.clear = function() {
+      angular.forEach(this.todos, function(todo) {
+        if (todo.done) {
+          todo.done = false;
+        }
+      });
+      
+    
+      /*this.todos.push({text:this.todoText, done:false});
+      this.todoText = ''; */
+    };
+    
+    
+    });

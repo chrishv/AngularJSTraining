@@ -15,6 +15,7 @@
     <header>
       <h1>Todo List</h1>
     </header>
+   
     
     <article ng-controller="TodoListController as todoList">
       <p>You have {{todoList.todos.length}} items in your todo list. 
@@ -35,7 +36,10 @@
         <span ng-show="form.todoText.$error.minlength">Minimum length is 2</span>
         
         <input type="submit" value="Add Todo" ng-disabled="form.$invalid">
+        
       </form>
+      <button ng-click="todoList.clear()">Clear done items</button>
+      <button ng-click="todoList.delete()">Delete done items</button>
     </article>
   </section>
   
